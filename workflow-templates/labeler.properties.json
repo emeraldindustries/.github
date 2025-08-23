@@ -1,0 +1,7 @@
+{
+  "name": "PR Labeler",
+  "description": "Automatically labels PRs based on changed files using actions/labeler.",
+  "iconName": "octicon-tag",
+  "categories": ["Automation"],
+  "file": "labeler.yml"
+}

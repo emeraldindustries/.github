@@ -1,0 +1,7 @@
+{
+  "name": "Stale Issues/PRs",
+  "description": "Marks and closes stale issues and pull requests.",
+  "iconName": "octicon-clock",
+  "categories": ["Automation"],
+  "file": "stale.yml"
+}
