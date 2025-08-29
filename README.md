@@ -1,6 +1,6 @@
-# Emerald Industries — Org Community Files ⚙️
+# Emerald Industries — Org Files ⚙️
 
-Default, org-wide **community health** for all repos:
+Default, org-wide **health** ⚕️for all repos:
 - 🧩 **Templates** — Issues & PRs (with helpful prompts)
 - 🛡️ **Policies** — Security, Support, Contributing
 - 👥 **CODEOWNERS** — review routing
