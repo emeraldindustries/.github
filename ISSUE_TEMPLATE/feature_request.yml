@@ -1,11 +1,18 @@
 name: Feature request
-description: Propose an enhancement
-labels: [enhancement]
+description: Propose a small, focused improvement
+labels: [feature]
 body:
   - type: textarea
-    id: value
+    id: pitch
+    attributes: { label: The pitch (1–3 sentences) }
+    validations: { required: true }
+  - type: textarea
+    id: details
+    attributes: { label: Details / constraints }
+  - type: checkboxes
+    id: scope
     attributes:
-      label: Value
-      description: Why this matters; user story; acceptance criteria
-    validations:
-      required: true
+      label: Scope
+      options:
+        - label: Small and focused (single concern)
+          required: true

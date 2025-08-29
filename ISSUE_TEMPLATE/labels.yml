@@ -1,0 +1,13 @@
+# name, color, description
+- name: bug          ; color: d73a4a ; description: Something isn’t working
+- name: feature      ; color: a2eeef ; description: New capability
+- name: docs         ; color: 0075ca ; description: Documentation updates
+- name: ci           ; color: 5319e7 ; description: Continuous integration
+- name: repo-admin   ; color: 0e8a16 ; description: Repo meta / settings
+- name: security     ; color: b60205 ; description: Security-related
+- name: promotion    ; color: 5319e7 ; description: Lab → Tools moves
+- name: tools        ; color: 0e8a16 ; description: Changes under tools/**
+- name: lab          ; color: c5def5 ; description: Changes under lab/**
+- name: chore        ; color: cccccc ; description: Maintenance / housekeeping
+- name: refactor     ; color: fbca04 ; description: Code change w/o behavior change
+- name: good first issue ; color: 7057ff ; description: Friendly for new contributors

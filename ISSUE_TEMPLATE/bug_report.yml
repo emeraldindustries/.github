@@ -1,11 +1,21 @@
 name: Bug report
-description: Report a problem
+description: Report a reproducible problem
 labels: [bug]
 body:
+  - type: input
+    id: repo
+    attributes: { label: Repository, placeholder: emeraldindustries/attic }
+    validations: { required: true }
   - type: textarea
-    id: what
-    attributes:
-      label: What happened?
-      description: Steps to reproduce, expected vs actual behavior
-    validations:
-      required: true
+    id: steps
+    attributes: { label: Steps to reproduce, render: bash }
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes: { label: Expected behavior }
+  - type: textarea
+    id: actual
+    attributes: { label: Actual behavior (with exact output), render: text }
+  - type: input
+    id: env
+    attributes: { label: Environment, placeholder: "macOS 14.5, Ubuntu 22.04; bash 5.2" }

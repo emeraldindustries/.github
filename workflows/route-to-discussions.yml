@@ -1,0 +1,44 @@
+name: Reusable • route issues to Discussions
+
+on:
+  workflow_call:
+    inputs:
+      qna_url:
+        required: true
+        type: string
+    secrets:
+      GH_TOKEN:
+        required: false
+
+permissions:
+  issues: write
+
+jobs:
+  route:
+    runs-on: ubuntu-latest
+    env:
+      QNA_URL: ${{ inputs.qna_url }}
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const title = (issue.title || "").toLowerCase();
+            const body  = (issue.body  || "").toLowerCase();
+            const labels = (issue.labels || []).map(l => (typeof l === 'string' ? l : l.name).toLowerCase());
+            const looks =
+              /\?/.test(title) ||
+              /^(how|help|can|why|what)\b/.test(title) ||
+              /error|cannot|can\'t|failed/.test(body) ||
+              labels.some(l => ['question','q&a','support'].includes(l));
+
+            if (!looks) return;
+
+            const {owner, repo} = context.repo;
+            const issue_number = issue.number;
+
+            await github.rest.issues.addLabels({ owner, repo, issue_number, labels: ['routing:discussion'] });
+            await github.rest.issues.createComment({
+              owner, repo, issue_number,
+              body: `👋 This looks like Q&A. Please use **${process.env.QNA_URL}** for help/how-to. Thanks!`
+            });
