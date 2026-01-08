@@ -1,8 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Q&A (Emerald Attic Discussions)
+  - name: 💬 Q&A (Attic Discussions)
     url: https://github.com/emeraldindustries/attic/discussions/categories/q-a
-    about: Questions or troubleshooting about one-off utilities.
-  - name: Security policy
-    url: https://github.com/emeraldindustries/.github/blob/main/SECURITY.md
-    about: Please review our security guidance before reporting.
+    about: Ask questions, get help, and share context.
+  - name: 💡 Ideas (Attic Discussions)
+    url: https://github.com/emeraldindustries/attic/discussions/categories/ideas
+    about: Propose a small improvement or a tweak.
+  - name: 🎉 Show & Tell
+    url: https://github.com/emeraldindustries/attic/discussions/categories/show-and-tell
+    about: Share what you built or learned.
