@@ -1,0 +1,53 @@
+name: Source work with remote collection
+description: A bounded source task with an owning remote destination and collecting reviewer.
+title: "[SOURCE] "
+body:
+  - type: markdown
+    attributes:
+      value: "Use an existing task when one already owns the change. Source handoff is not complete until exact remote source and required evidence are independently retrieved. Never include secrets or protected host payloads here."
+  - type: textarea
+    id: scope
+    attributes:
+      label: Outcome and owning scope
+      description: Name the smallest useful result, source paths, existing issue/consumer and acceptance test.
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: Author and collecting reviewer
+      description: Name the actual responsible roles; collection is not author self-certification.
+    validations:
+      required: true
+  - type: input
+    id: destination
+    attributes:
+      label: Owning remote source destination
+      description: Exact owner/repository and existing branch or intended reviewed branch; do not guess a repository.
+    validations:
+      required: true
+  - type: textarea
+    id: baseline
+    attributes:
+      label: Current source and retained WIP
+      description: Current remote/base commit, known existing local work, consumer and custody. Explicitly identify what is unobserved.
+    validations:
+      required: true
+  - type: textarea
+    id: collection
+    attributes:
+      label: Collection checkpoint and evidence destination
+      description: Existing work-interval boundary, approved evidence custody/retention, independent retrieval method and what happens on publication failure. Do not invent future hashes.
+    validations:
+      required: true
+  - type: checkboxes
+    id: requirements
+    attributes:
+      label: Required completion conditions
+      options:
+        - label: I will not call local-only or unreferenced source a completed remote handoff.
+          required: true
+        - label: The collector must verify the actual remote ref/commit/tree/changed files and required evidence before collection is accepted.
+          required: true
+        - label: Publication or retrieval failure preserves explicit blocked custody; this task grants no merge, CI, host, disclosure or deletion permission.
+          required: true
