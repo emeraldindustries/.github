@@ -1,10 +1,10 @@
-name: Source work with remote collection
-description: A bounded source task with an owning remote destination and collecting reviewer.
+name: Source work with remote parity
+description: A bounded source task with actual WIP custody, independent collection and branch disposition.
 title: "[SOURCE] "
 body:
   - type: markdown
     attributes:
-      value: "Use an existing task when one already owns the change. Source handoff is not complete until exact remote source and required evidence are independently retrieved. Never include secrets or protected host payloads here."
+      value: "Reuse the existing owning task. Commit and remotely preserve coherent WIP even when failing or unreviewed. A test branch is visibility, not main or product PASS. Never include secrets or protected operational originals here."
   - type: textarea
     id: scope
     attributes:
@@ -15,39 +15,41 @@ body:
   - type: input
     id: owner
     attributes:
-      label: Author and collecting reviewer
-      description: Name the actual responsible roles; collection is not author self-certification.
+      label: Author and independent collecting reviewer
+      description: Name actual available roles and one-writer custody. An author's readback is not independent collection.
     validations:
       required: true
   - type: input
     id: destination
     attributes:
-      label: Owning remote source destination
-      description: Exact owner/repository and existing branch or intended reviewed branch; do not guess a repository.
+      label: Owning remote WIP destination
+      description: Exact owner/repository and suitable existing or proposed development ref, with permitted audience and push/CI effects. Reuse a branch through corrections.
     validations:
       required: true
   - type: textarea
     id: baseline
     attributes:
-      label: Current source and retained WIP
-      description: Current remote/base commit, known existing local work, consumer and custody. Explicitly identify what is unobserved.
+      label: Actual local and remote source checkpoint
+      description: Local HEAD/tree/parents/time, remote ref/HEAD, staged and unstaged changes, deletions, source-bearing untracked files, later edits and exclusions. Mark missing source PARITY_INCOMPLETE; keep test/review state separate from custody.
     validations:
       required: true
   - type: textarea
     id: collection
     attributes:
-      label: Collection checkpoint and evidence destination
-      description: Existing work-interval boundary, approved evidence custody/retention, independent retrieval method and what happens on publication failure. Do not invent future hashes.
+      label: Collection, consumer and branch retirement
+      description: Checkpoint before handback/review/idle; independent object/body retrieval; approved evidence retention; integration/consumer target; exact disposition checkpoint and retained-history destination before deletion. For a blocker supply the planner's next executable custody job, not indefinite idle. Do not invent future hashes.
     validations:
       required: true
   - type: checkboxes
     id: requirements
     attributes:
-      label: Required completion conditions
+      label: Required workflow conditions
       options:
-        - label: I will not call local-only or unreferenced source a completed remote handoff.
+        - label: I will commit and preserve coherent WIP now through the permitted route, not wait for passing tests, review or installation.
           required: true
-        - label: The collector must verify the actual remote ref/commit/tree/changed files and required evidence before collection is accepted.
+        - label: Independent collection must reconcile the actual remote commit, parents, tree, changed source bodies and modes with the scoped local inventory; source exclusions and later edits remain explicit.
           required: true
-        - label: Publication or retrieval failure preserves explicit blocked custody; this task grants no merge, CI, host, disclosure or deletion permission.
+        - label: A temporary branch has an actual consumer and disposition; deletion requires independent retained-history proof, exact authority, unchanged head and post-delete readback.
+          required: true
+        - label: Publication or retrieval failure preserves originals and an executable next job; this task grants no CI, merge, protected disclosure, host or deletion effects and installs no automated interlock.
           required: true
